@@ -1,0 +1,322 @@
+/* Start Global Rules */
+:root{
+    --main-color:#1877f2;
+    --main-color-alt:#004182;
+    --section-padding: 100px;
+}
+*{ 
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    direction: rtl;
+}
+::-webkit-scrollbar{
+    width: 15px;
+}
+::-webkit-scrollbar-track{
+    background-color: #FAFAFA;
+}
+::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+}
+/* Start Components */
+.main-title{
+    text-align: center;
+}
+.main-title h1{
+    font-weight: normal;
+}
+.main-title .the-paragraph{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.main-title span{
+    display: block;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    width: 100px;
+    height: 4px;
+    margin: 0 10px;
+}
+.main-title p{
+    color: #666;
+}
+
+/* End Components */
+body{
+    font-family: 'Cairo' , 'Sans-Serif';
+}
+html{
+    scroll-behavior: smooth;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    padding: 0;
+    margin: 0;
+}
+.container{
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (max-width:450px) {
+    .container {
+        width: auto;
+
+    }
+}
+
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+@media (min-width:1280px) {
+    .container {
+        width: 1250px;
+    }
+}
+/* End Global Rules */
+/* Start Header */
+header{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    right: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,40%);
+    z-index: 999;
+}
+header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header .logo{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    font-size: 25px;
+    font-weight: bold;
+}
+header .links{
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+header .main-nav{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width:768px) {
+    header .links i{
+        display: none;
+    }
+}
+@media (max-width:767px) {
+    header .links i{
+        display: block;
+        font-size: 20px;
+    }
+}
+header .main-nav a{
+    color: white;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 15px;
+    transition: 0.3s;
+}
+header .main-nav a:hover{
+    color: white;
+}
+@media (max-width:767px) {
+    header .main-nav{
+        display: none;
+    }
+    header .links:hover .main-nav{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 15px);
+        width: 200px;
+        background-color: black;
+        z-index: 999;
+    }
+    header .links:hover .main-nav a{
+        color: #eee;
+    }
+    header .main-nav::before{
+        content: '';
+        position: absolute;
+        border-width: 15px;
+        border-style: solid;
+        border-color: transparent transparent black transparent;
+        left: 0;
+        top: -30px;
+    }
+    header .main-nav li:not(:last-child){
+        width: 100%;
+        border-bottom: 1px solid #CCC;
+    }
+
+}
+/* End Header */
+/* Start Landing */
+.landing{
+    height: 100vh;
+    background-color: #FFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.landing .intro{
+    text-align: center;
+    margin: auto;
+    padding: 200px 0 200px;
+    background-color: var(--main-color);
+    color: white;
+    position: relative;
+}
+.landing .intro::after{
+    content: '';
+    position: absolute;
+    bottom: -145px;
+    right: 50%;
+    width: 3000px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--main-color);
+    transform: translateX(50%);
+    animation: sail 2s infinite ease-in-out;
+    
+}
+.landing .intro p{
+    line-height: 1.5;
+    font-size: 18px;
+}
+.landing .intro form{
+    position: relative;
+    width: fit-content;
+    margin: 30px auto;
+}
+@media (min-width:350px) and (max-width:992px) {
+    .landing .intro form {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+}
+
+.landing .intro form input[type="search"]{
+    width: 900px;
+    max-width: 100%;
+    padding: 15px 30px 15px 10px ;
+    border-radius: 6px;
+    border: none;
+}
+
+.landing .intro form input[type="search"]:focus{
+    outline: none;
+}
+.landing .intro form i{
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--main-color);
+}
+.landing .intro form input[type="submit"]{
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 5px 15px ;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+}
+@media (max-width:767px){
+    .landing .intro form i{
+        right: 15px;
+    }
+    .landing .intro form input[type="submit"]{
+        left: 15px;
+    }
+}
+@media (max-width:767px) {
+    .landing::before{
+        display: none;
+    }
+}
+@keyframes sail {
+    0%,100%{
+        transform: translateX(40%);
+    }
+    50%{
+        transform: translateX(50%);
+    }
+}
+/* End Landing */
+
+/* Start Study Plans */
+.study-plans{
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    background-color: white; 
+}
+.study-plans .container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 60px 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.study-plans .box{
+    background-color: #f5f5f5;
+    position: relative;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #EEE;
+    z-index: 2;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.study-plans .box:hover{
+    background-color: #DDD;
+}
+.study-plans .box img{
+    width: 80px;
+    position: absolute;
+    z-index: 1;
+    margin-top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.study-plans .box h3{
+    margin-top: 30px;
+}
+/* End Study Plans */
